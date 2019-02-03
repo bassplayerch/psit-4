@@ -55,6 +55,7 @@ export const authState: AuthState = {
     signupFailure: (state, error) => ({ ...state, loading: false, error }),
     signup: effect(async (dispatch, { email, password }) => {
         try {
+            dispatch.authState.signupRequest();
             const fbUser = await fbAuth.createUserWithEmailAndPassword(email, password);
             const newUser = { email: fbUser.user!.email!, id: fbUser.user!.uid };
             dispatch.authState.signupSuccess(newUser);
@@ -69,6 +70,7 @@ export const authState: AuthState = {
     sendActivationMailFailure: (state, error) => ({ ...state, loading: false, error }),
     sendActivationMail: effect(async (dispatch, fbUser) => {
         try {
+            dispatch.authState.sendActivationMailRequest();
             await fbUser.sendEmailVerification();
             dispatch.authState.sendActivationMailSuccess();
         } catch (e) {
@@ -80,6 +82,7 @@ export const authState: AuthState = {
     addUserToDbFailure: (state, error) => ({ ...state, loading: false, error }),
     addUserToDb: effect(async (dispatch, { email, id }) => {
         try {
+            dispatch.authState.addUserToDbRequest();
             await db
                 .collection(Collections.USER)
                 .doc(id)

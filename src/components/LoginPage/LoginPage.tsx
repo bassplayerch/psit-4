@@ -3,20 +3,20 @@ import { useInput } from '../../hooks/useInput';
 import { useAction, Dispatch } from 'easy-peasy';
 import { AppState } from '../../redux/store';
 
-const SignupPage = () => {
+const LoginPage = () => {
   const email = useInput();
   const password = useInput();
-  const signup = useAction((dispatch: Dispatch<AppState>) => dispatch.authState.signup);
+  const login = useAction((dispatch: Dispatch<AppState>) => dispatch.authState.login);
 
-  function handleSignup(e: SyntheticEvent<HTMLFormElement>) {
+  function handleLogin(e: SyntheticEvent<HTMLFormElement>) {
     e.preventDefault();
-    signup({ email: email.value, password: password.value });
+    login({ email: email.value, password: password.value });
   }
 
   return (
     <>
-      <h1>Signup Page</h1>
-      <form onSubmit={handleSignup}>
+      <h1>Login Page</h1>
+      <form onSubmit={handleLogin}>
         <input type="email" {...email} />
         <input type="password" {...password} />
         <button type="submit">Sign up</button>
@@ -25,4 +25,4 @@ const SignupPage = () => {
   );
 };
 
-export default SignupPage;
+export default LoginPage;

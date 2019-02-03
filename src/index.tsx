@@ -2,16 +2,17 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/App';
 import * as serviceWorker from './serviceWorker';
-import { createStore, effect, StoreProvider, Action } from 'easy-peasy';
-import { store } from './redux/store';
-
-
+import { StoreProvider } from 'easy-peasy';
+import { store, browserHistory } from './redux/store';
+import { Router } from 'react-router';
 
 ReactDOM.render(
-	<StoreProvider store={store}>
-		<App/>
-	</StoreProvider>,
-	document.getElementById('root')
+  <StoreProvider store={store}>
+    <Router history={browserHistory} >
+      <App/>
+    </Router>
+  </StoreProvider>,
+  document.getElementById('root')
 );
 
 // If you want your app to work offline and load faster, you can change

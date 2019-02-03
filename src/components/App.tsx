@@ -1,9 +1,12 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, FunctionComponent } from 'react';
 import { fbAuth } from '../firebase/firebase';
 import { useAuthState } from '../hooks/useAuthState';
 import SignupPage from './SignupPage/SignupPage';
 
-const App = () => {
+type AppProps = {
+}
+
+const App: FunctionComponent<AppProps> = props => {
   const { user, loading } = useAuthState();
   return (
     <div>
