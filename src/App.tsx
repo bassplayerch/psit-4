@@ -1,28 +1,20 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useStore, useAction, State, Dispatch } from 'easy-peasy';
+import React, { useEffect } from 'react';
+import { Todo, Model } from '.';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.tsx</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
-}
+const App = () => {
+  const todos = useStore((state: State<Model>) => state.todos.items);
+  const addTodo = useAction((dispatch: Dispatch<Model>) => 
+	dispatch.todos.addTodo,
+  )
+
+  return (
+    <div>
+      <h1>lol</h1>
+      {todos.map(({id, title}: Todo) => <div key={id}>{title}</div>)}
+      <button onClick={() => addTodo({title: "asd", userId: 4, id: 2, completed: false})}>add todo</button>
+    </div>
+  );
+};
 
 export default App;
