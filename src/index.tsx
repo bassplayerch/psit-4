@@ -4,10 +4,16 @@ import App from './components/App';
 import * as serviceWorker from './serviceWorker';
 import { StoreProvider } from 'easy-peasy';
 import { store } from './redux/store';
+import { ThemeProvider } from 'styled-components';
+import { theme } from './theme/theme';
+
+
 
 ReactDOM.render(
   <StoreProvider store={store}>
-        <App />
+    <ThemeProvider theme={theme}>
+      <App />
+    </ThemeProvider>
   </StoreProvider>,
   document.getElementById('root')
 );
