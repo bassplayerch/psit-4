@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 import { color, ColorProps, ResponsiveValue, SpaceProps, space } from 'styled-system'
-import { ColorTheme } from '../../theme/theme';
+import { ColorTheme, SpaceTheme } from '../../theme/theme';
 
 
-const Button = styled.button<ColorTheme & SpaceProps>`
+const Button = styled.button<ColorTheme & SpaceTheme>`
   ${color}
   ${space}
 `
