@@ -2,8 +2,10 @@ import React, { SyntheticEvent } from 'react';
 import { useInput } from '../../hooks/useInput';
 import { useAction, Dispatch } from 'easy-peasy';
 import { AppState } from '../../redux/store';
+import { Link } from '@reach/router';
+import { Routes } from '../../constants/routes';
 
-const SignupPage = () => {
+const SignupPage = (props: any) => {
   const email = useInput();
   const password = useInput();
   const signup = useAction((dispatch: Dispatch<AppState>) => dispatch.authState.signup);
@@ -21,6 +23,8 @@ const SignupPage = () => {
         <input type="password" {...password} />
         <button type="submit">Sign up</button>
       </form>
+      <Link to={Routes.LOGIN}>Already a member? Log in instead</Link>
+
     </>
   );
 };

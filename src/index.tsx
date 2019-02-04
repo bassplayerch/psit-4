@@ -3,14 +3,11 @@ import ReactDOM from 'react-dom';
 import App from './components/App';
 import * as serviceWorker from './serviceWorker';
 import { StoreProvider } from 'easy-peasy';
-import { store, browserHistory } from './redux/store';
-import { Router } from 'react-router';
+import { store } from './redux/store';
 
 ReactDOM.render(
   <StoreProvider store={store}>
-    <Router history={browserHistory} >
-      <App/>
-    </Router>
+        <App />
   </StoreProvider>,
   document.getElementById('root')
 );

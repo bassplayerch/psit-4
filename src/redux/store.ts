@@ -1,12 +1,9 @@
 import { AuthState, authState } from './authState/authState';
 import { createStore, reducer } from 'easy-peasy';
-import createHistory from 'history/createBrowserHistory';
 // @ts-ignore
-import { createReduxHistoryContext } from 'redux-first-history';
+import {  reachify } from 'redux-first-history';
+import { routerReducer, routerMiddleware } from './router';
 
-const { createReduxHistory, routerMiddleware, routerReducer } = createReduxHistoryContext({
-  history: createHistory(),
-});
 
 export interface AppState {
   authState: AuthState;
@@ -18,6 +15,4 @@ export const store = createStore<AppState>(
   { middlewares: [routerMiddleware] }
 );
 
-export const browserHistory = createReduxHistory(store);
-
-
+export const reachHistory = reachify(history);
