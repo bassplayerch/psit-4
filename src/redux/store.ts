@@ -1,12 +1,12 @@
 import { AuthState, authState } from './authState/authState';
-import { createStore, reducer } from 'easy-peasy';
+import { createStore, reducer, Reducer } from 'easy-peasy';
 // @ts-ignore
 import { reachify } from 'redux-first-history';
-import { routerReducer, routerMiddleware } from './router';
+import { routerReducer, routerMiddleware } from './router/router';
 
 export interface AppState {
   authState: AuthState;
-  router: any;
+  router: Reducer<any>;
 }
 
 export const store = createStore<AppState>({ authState, router: reducer(routerReducer) }, { middlewares: [routerMiddleware] });

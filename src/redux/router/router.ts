@@ -1,5 +1,5 @@
 import createHistory from 'history/createBrowserHistory';
-// @ts-ignore;
+// @ts-ignore
 import { createReduxHistoryContext } from 'redux-first-history';
 
 export const { createReduxHistory, routerMiddleware, routerReducer } = createReduxHistoryContext({

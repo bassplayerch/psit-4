@@ -2,13 +2,13 @@ import React, { useEffect } from 'react';
 import { fbAuth } from '../firebase/firebase';
 import { useAuthState } from '../hooks/useAuthState';
 import SignupPage from './SignupPage/SignupPage';
-import { Router } from '@reach/router';
 import { Routes } from '../constants/routes';
 import LoginPage from './LoginPage/LoginPage';
 import HomePage from './HomePage/HomePage';
 import { useAction, Dispatch } from 'easy-peasy';
 import { AppState } from '../redux/store';
 import ActivateEmailPage from './ActivateEmailPage.tsx/ActivateEmailPage';
+import { Route } from 'react-router';
 
 const App = () => {
   const { user, loading } = useAuthState();
@@ -19,18 +19,18 @@ const App = () => {
 
   if (!user) {
     return (
-      <Router>
-        <LoginPage path={Routes.LOGIN} />
-        <SignupPage path={Routes.SIGNUP} />
-      </Router>
+      <>
+        <Route exact path={Routes.LOGIN} component={LoginPage} />
+        <Route path={Routes.SIGNUP} component={SignupPage} />
+      </>
     );
   }
 
   if (!user.emailVerified) {
-    return <ActivateEmailPage path={Routes.HOME} />;
+    return <Route exact path={Routes.HOME} component={ActivateEmailPage} />;
   }
 
-  return <HomePage path={Routes.HOME} />;
+  return <Route exact path={Routes.HOME} component={HomePage} />;
 };
 
 export default App;

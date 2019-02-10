@@ -2,8 +2,8 @@ import React, { SyntheticEvent } from 'react';
 import { useInput } from '../../hooks/useInput';
 import { useAction, Dispatch } from 'easy-peasy';
 import { AppState } from '../../redux/store';
-import { Link } from '@reach/router';
 import { Routes } from '../../constants/routes';
+import { Link } from 'react-router-dom';
 
 const SignupPage = (props: any) => {
   const email = useInput();

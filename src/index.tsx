@@ -6,11 +6,16 @@ import App from './components/App';
 import { store } from './redux/store';
 import * as serviceWorker from './serviceWorker';
 import { theme } from './theme/theme';
+import { LocationProvider } from '@reach/router';
+import history from './redux/router/history';
+import { Router } from 'react-router';
 
 ReactDOM.render(
   <StoreProvider store={store}>
     <ThemeProvider theme={theme}>
-      <App />
+      <Router history={history}>
+        <App />
+      </Router>
     </ThemeProvider>
   </StoreProvider>,
   document.getElementById('root')
