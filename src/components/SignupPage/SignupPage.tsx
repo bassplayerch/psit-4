@@ -24,7 +24,6 @@ const SignupPage = (props: any) => {
         <button type="submit">Sign up</button>
       </form>
       <Link to={Routes.LOGIN}>Already a member? Log in instead</Link>
-
     </>
   );
 };

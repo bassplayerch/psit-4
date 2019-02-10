@@ -74,7 +74,11 @@ export const authState: AuthState = {
   }),
   sendActivationMailRequest: state => ({ ...state, loading: true }),
   sendActivationMailSuccess: state => ({ ...state, loading: false }),
-  sendActivationMailFailure: (state, error) => ({ ...state, loading: false, error }),
+  sendActivationMailFailure: (state, error) => ({
+    ...state,
+    loading: false,
+    error,
+  }),
   sendActivationMail: effect(async (dispatch, fbUser) => {
     try {
       dispatch.authState.sendActivationMailRequest();
@@ -106,8 +110,8 @@ export const authState: AuthState = {
     try {
       dispatch.authState.loginRequest();
       await fbAuth.signInWithEmailAndPassword(email, password);
-      if (fbAuth.currentUser && !fbAuth.currentUser.emailVerified){
-          dispatch.authState.sendActivationMail(fbAuth.currentUser)
+      if (fbAuth.currentUser && !fbAuth.currentUser.emailVerified) {
+        dispatch.authState.sendActivationMail(fbAuth.currentUser);
       }
       dispatch.authState.loginSuccess();
     } catch (e) {
@@ -126,6 +130,6 @@ export const authState: AuthState = {
       dispatch.authState.logoutFailure(e);
     }
   }),
-  setCurrentUser: (state, user) => ({...state, user}),
-  removeCurrentUser: (state) => ({...state, user: {}}),
+  setCurrentUser: (state, user) => ({ ...state, user }),
+  removeCurrentUser: state => ({ ...state, user: {} }),
 };

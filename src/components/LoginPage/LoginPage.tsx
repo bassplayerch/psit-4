@@ -10,7 +10,6 @@ const LoginPage = (props: any) => {
   const password = useInput();
   const login = useAction((dispatch: Dispatch<AppState>) => dispatch.authState.login);
 
-
   function handleLogin(e: SyntheticEvent<HTMLFormElement>) {
     e.preventDefault();
     login({ email: email.value, password: password.value });

@@ -1,13 +1,11 @@
+import { StoreProvider } from 'easy-peasy';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './components/App';
-import * as serviceWorker from './serviceWorker';
-import { StoreProvider } from 'easy-peasy';
-import { store } from './redux/store';
 import { ThemeProvider } from 'styled-components';
+import App from './components/App';
+import { store } from './redux/store';
+import * as serviceWorker from './serviceWorker';
 import { theme } from './theme/theme';
-
-
 
 ReactDOM.render(
   <StoreProvider store={store}>
