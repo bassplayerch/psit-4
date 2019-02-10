@@ -31,8 +31,7 @@
     "lint": "tslint --project tsconfig.json",
     "prettier": "prettier \"./**/*.{js,jsx,json,ts,tsx,md,mdx,yml,yaml,vue}\"",
     "format": "npm run prettier -- --write",
-    "validate": "npm run lint && npm run prettier -- --list-different",
-    "precommit": "lint-staged"
+    "validate": "npm run lint && npm run prettier -- --list-different"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -68,5 +67,10 @@
     "ts-loader": "^5.3.3",
     "tslint-config-prettier": "^1.18.0",
     "typescript": "3.3.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   }
 }
