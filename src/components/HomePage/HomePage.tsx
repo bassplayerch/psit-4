@@ -12,7 +12,7 @@ const HomePage: FunctionComponent<HomePageProps> = props => {
   return (
     <>
       <h1>home sweet home</h1>
-      <button onClick={logout}>log out</button>
+      <button onClick={() => logout()}>log out</button>
       <Button color="primary" p={2}>
         test
       </Button>

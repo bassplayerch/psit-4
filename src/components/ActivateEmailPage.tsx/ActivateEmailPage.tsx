@@ -12,7 +12,7 @@ const ActivateEmailPage: FunctionComponent<ActivateEmailPageProps> = () => {
   return (
     <>
       <h1>An activation email was sent to your account...</h1>
-      <button onClick={logout}>Back to login</button>
+      <button onClick={() => logout()}>Back to login</button>
     </>
   );
 };

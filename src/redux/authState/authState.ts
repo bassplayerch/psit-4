@@ -131,5 +131,5 @@ export const authState: AuthState = {
     }
   }),
   setCurrentUser: (state, user) => ({ ...state, user }),
-  removeCurrentUser: state => ({ ...state, user: {} }),
+  removeCurrentUser: state => ({ ...state, user: null }),
 };

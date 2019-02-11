@@ -7,6 +7,4 @@ export interface AppState {
   router: Reducer<any>;
 }
 
-// todo remove ts ignore once bug is fixed in the library
-// @ts-ignore
 export const store = createStore<AppState>({ authState, router: reducer(routerReducer) }, { middleware: [routerMiddleware] });
