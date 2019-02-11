@@ -3,9 +3,7 @@ import { useAction, Dispatch } from 'easy-peasy';
 import { AppState } from '../../redux/store';
 import Button from '../_common/Button';
 
-type HomePageProps = {
-  path: string;
-};
+type HomePageProps = {};
 
 const HomePage: FunctionComponent<HomePageProps> = props => {
   const logout = useAction((dispatch: Dispatch<AppState>) => dispatch.authState.logout);

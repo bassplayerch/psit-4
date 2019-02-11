@@ -9,6 +9,8 @@ const LoginPage = (props: any) => {
   const email = useInput();
   const password = useInput();
   const login = useAction((dispatch: Dispatch<AppState>) => dispatch.authState.login);
+  // @ts-ignore
+  const test = useAction((dispatch: Dispatch<AppState>) => dispatch.authState.test);
 
   function handleLogin(e: SyntheticEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -23,6 +25,7 @@ const LoginPage = (props: any) => {
         <input type="password" {...password} />
         <button type="submit">Log In</button>
       </form>
+      <button onClick={test}>test</button>
       <NavLink exact to={Routes.SIGNUP}>
         Create an Account
       </NavLink>

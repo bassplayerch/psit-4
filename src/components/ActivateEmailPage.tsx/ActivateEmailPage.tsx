@@ -2,9 +2,7 @@ import React, { FunctionComponent } from 'react';
 import { useAction, Dispatch } from 'easy-peasy';
 import { AppState } from '../../redux/store';
 
-type ActivateEmailPageProps = {
-  path: string;
-};
+type ActivateEmailPageProps = {};
 
 const ActivateEmailPage: FunctionComponent<ActivateEmailPageProps> = () => {
   const logout = useAction((dispatch: Dispatch<AppState>) => dispatch.authState.logout);
