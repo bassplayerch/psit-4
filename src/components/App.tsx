@@ -8,9 +8,9 @@ import HomePage from './HomePage/HomePage';
 import { useAction, Dispatch } from 'easy-peasy';
 import { AppState } from '../redux/store';
 import ActivateEmailPage from './ActivateEmailPage.tsx/ActivateEmailPage';
-import { Route } from 'react-router';
+import { Route, withRouter } from 'react-router';
 
-const App = () => {
+const App = withRouter(() => {
   const { user, loading } = useAuthState();
 
   if (loading) {
@@ -31,6 +31,6 @@ const App = () => {
   }
 
   return <Route exact path={Routes.HOME} component={HomePage} />;
-};
+});
 
 export default App;

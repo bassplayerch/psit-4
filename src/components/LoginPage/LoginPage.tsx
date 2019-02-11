@@ -3,7 +3,7 @@ import { useInput } from '../../hooks/useInput';
 import { useAction, Dispatch } from 'easy-peasy';
 import { AppState } from '../../redux/store';
 import { Routes } from '../../constants/routes';
-import { Link } from '@reach/router';
+import { NavLink } from 'react-router-dom';
 
 const LoginPage = (props: any) => {
   const email = useInput();
@@ -23,7 +23,9 @@ const LoginPage = (props: any) => {
         <input type="password" {...password} />
         <button type="submit">Log In</button>
       </form>
-      <Link to={Routes.SIGNUP}>Create an Account</Link>
+      <NavLink exact to={Routes.SIGNUP}>
+        Create an Account
+      </NavLink>
     </>
   );
 };

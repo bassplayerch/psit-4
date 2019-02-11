@@ -6,7 +6,6 @@ import App from './components/App';
 import { store } from './redux/store';
 import * as serviceWorker from './serviceWorker';
 import { theme } from './theme/theme';
-import { LocationProvider } from '@reach/router';
 import history from './redux/router/history';
 import { Router } from 'react-router';
 
